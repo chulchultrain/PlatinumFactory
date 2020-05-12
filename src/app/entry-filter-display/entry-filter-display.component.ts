@@ -17,8 +17,10 @@ export class EntryFilterDisplayComponent implements OnInit {
     'move3': new FormControl(''),
     'move4': new FormControl('')
   });
-  constructor(nameService : NameService) { 
 
+
+
+  constructor(nameService : NameService) { 
   }
 
   ngOnInit(): void {

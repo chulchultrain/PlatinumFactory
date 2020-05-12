@@ -1,9 +1,19 @@
 form {
-    min-width: 150px;
-    max-width: 300px;
+    width:100%;
+}
+
+mat-card {
+    width:60%;
+}
+
+mat-accordion {
+    width:60%;
 }
 
 mat-form-field {
     width: 100%;
 }
 
+mat-panel-description.mat-icon {
+    color:blue;
+}
