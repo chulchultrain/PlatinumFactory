@@ -1,8 +1,6 @@
-form {
-    width:100%;
-}
 
-mat-card {
+
+app-entry-filter-form {
     width:60%;
 }
 
@@ -10,9 +8,6 @@ mat-accordion {
     width:60%;
 }
 
-mat-form-field {
-    width: 100%;
-}
 
 mat-panel-description.mat-icon {
     color:blue;

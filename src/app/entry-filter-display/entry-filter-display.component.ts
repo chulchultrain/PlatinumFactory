@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NameService } from '../name/name.service';
-import { FormGroup, FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-entry-filter-display',
@@ -9,14 +9,6 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class EntryFilterDisplayComponent implements OnInit {
 
-  filter_form = new FormGroup({ 
-    'name': new FormControl(''),
-    'type': new FormControl(''),
-    'move1': new FormControl(''),
-    'move2': new FormControl(''),
-    'move3': new FormControl(''),
-    'move4': new FormControl('')
-  });
 
 
 

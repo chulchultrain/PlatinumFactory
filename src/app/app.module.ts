@@ -17,6 +17,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { ResultDisplayComponent } from './result-display/result-display.component';
 import { EntryDisplayComponent } from './entry-display/entry-display.component';
 import { MatTableModule } from '@angular/material/table';
+import { SavedDisplayComponent } from './saved-display/saved-display.component';
+import { EntryFilterFormComponent } from './entry-filter-form/entry-filter-form.component';
 // import { NameService } from './name-service/name-service.service';
 
 @NgModule({
@@ -24,7 +26,9 @@ import { MatTableModule } from '@angular/material/table';
     AppComponent,
     EntryFilterDisplayComponent,
     ResultDisplayComponent,
-    EntryDisplayComponent
+    EntryDisplayComponent,
+    SavedDisplayComponent,
+    EntryFilterFormComponent
   ],
   imports: [
     BrowserModule,

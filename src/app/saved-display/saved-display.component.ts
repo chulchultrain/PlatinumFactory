@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-result-display',
-  templateUrl: './result-display.component.html',
-  styleUrls: ['./result-display.component.css']
+  selector: 'app-saved-display',
+  templateUrl: './saved-display.component.html',
+  styleUrls: ['./saved-display.component.css']
 })
-export class ResultDisplayComponent implements OnInit {
+export class SavedDisplayComponent implements OnInit {
 
   results = [
     {
@@ -78,13 +78,10 @@ export class ResultDisplayComponent implements OnInit {
   ]
 
   displayedColumns = ['Stat','EV','Move/Item/Nature'];
-
   constructor() { }
 
   ngOnInit(): void {
   }
-
-  
 
   convert(entry) {
     let res = [];
@@ -96,5 +93,6 @@ export class ResultDisplayComponent implements OnInit {
     res.push({'Stat': entry['Base Speed'], 'Move/Item/Nature': entry['Nature'], 'EV':entry['Speed EV']});
     return res;
   }
+
 
 }
