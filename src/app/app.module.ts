@@ -19,6 +19,10 @@ import { EntryDisplayComponent } from './entry-display/entry-display.component';
 import { MatTableModule } from '@angular/material/table';
 import { SavedDisplayComponent } from './saved-display/saved-display.component';
 import { EntryFilterFormComponent } from './entry-filter-form/entry-filter-form.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { HomePageComponent } from './home-page/home-page.component';
+
 // import { NameService } from './name-service/name-service.service';
 
 @NgModule({
@@ -28,7 +32,8 @@ import { EntryFilterFormComponent } from './entry-filter-form/entry-filter-form.
     ResultDisplayComponent,
     EntryDisplayComponent,
     SavedDisplayComponent,
-    EntryFilterFormComponent
+    EntryFilterFormComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,9 @@ import { EntryFilterFormComponent } from './entry-filter-form/entry-filter-form.
     MatInputModule,
     MatListModule,
     MatExpansionModule,
-    MatTableModule
+    MatTableModule,
+    MatTabsModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

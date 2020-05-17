@@ -1,13 +1,24 @@
-<mat-grid-list cols="3" rowHeight="1:1">
-    <mat-grid-tile>
+
+<mat-tab-group>
+    <mat-tab label="Filter">
         <app-entry-filter-form></app-entry-filter-form>
+    </mat-tab>
+    <mat-tab label="Results">
+        <app-result-display></app-result-display>
+    </mat-tab>
+    <mat-tab label="Saved">
+        <app-saved-display></app-saved-display>
+    </mat-tab>
+</mat-tab-group>
+
+<!-- <mat-grid-list cols="dynamicCols" rowHeight="1:1">
+    <mat-grid-tile id="filterFormColumn">
     </mat-grid-tile>
-    <mat-grid-tile>
-            <app-result-display>
-            </app-result-display>
+    <mat-grid-tile id="resultDisplayColumn">
+
 
     </mat-grid-tile>
-    <mat-grid-tile>
-        <app-saved-display></app-saved-display>
+    <mat-grid-tile id="savedResultsColumn">
+
     </mat-grid-tile>
-</mat-grid-list>
+</mat-grid-list> -->

@@ -1,14 +1,45 @@
-<mat-toolbar class="TopToolBarClass">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <button mat-icon-button color="primary" aria-label="Example icon button with a home icon" routerLink="">
+<mat-toolbar class="TopToolBarClass">
+    <div class="normal-nav-class">
+        <h2>Platinum Factory</h2>
+    </div>
+    <div class="mobile-nav-class">
+        <button mat-icon-button color="primary" aria-label="Example icon button with a home icon" routerLink="">
         <mat-icon>home</mat-icon>
     </button>
     <button mat-raised-button class="" routerLink="entry-filter" color="primary"> Entry Filter
     </button>
 
     <button mat-raised-button color="warn">Placeholder Button</button>
-
-
+    </div>
 </mat-toolbar>
-<mat-card> <h2> Platinum Factory App </h2></mat-card>
-<router-outlet></router-outlet>
+
+<mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened class="example-sidenav">
+        <mat-list>
+            <mat-list-item routerLink="">
+                <a >
+                    <button mat-icon-button color="primary" aria-label="Example icon button with a home icon" >
+                        <mat-icon>home</mat-icon>
+                    </button> 
+                    Home
+                </a>
+
+            </mat-list-item>
+            <mat-list-item routerLink="entry-filter">
+                <a >
+                <button mat-icon-button color="primary" aria-label="Example icon button with a input icon">
+                    <mat-icon>input</mat-icon>
+                </button> Entry Filter
+                </a>
+            </mat-list-item>
+        </mat-list>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<mat-toolbar class="example-footer">Footer</mat-toolbar>

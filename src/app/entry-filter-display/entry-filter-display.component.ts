@@ -22,8 +22,5 @@ export class EntryFilterDisplayComponent implements OnInit {
 
   }
 
-  submitForm() {
-    
-  }
 
 }

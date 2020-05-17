@@ -1,14 +1,35 @@
 
+/* mat-tab-group {
+    width: 60%;
+} */
 
-app-entry-filter-form {
+/* div.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+/* app-entry-filter-form {
     width:60%;
 }
 
 mat-accordion {
     width:60%;
-}
+} */
 
+/* mat-tab {
+    width:60%;
+} */
 
 mat-panel-description.mat-icon {
     color:blue;
 }
+
+/* @media (max-width: 700px) {
+    mat-grid-tile#savedResultsColumn {
+        display: none;
+    }
+    mat-grid-tile#resultDisplayColumn {
+        display: none;
+    }
+} */
