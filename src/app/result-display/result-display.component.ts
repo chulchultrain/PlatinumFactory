@@ -1,45 +1,45 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FilterService } from '../services/filter/filter.service';
+import SpeciesJson from '../../assets/Species.json';
 @Component({
   selector: 'app-result-display',
   templateUrl: './result-display.component.html',
   styleUrls: ['./result-display.component.css']
 })
 export class ResultDisplayComponent implements OnInit {
-
+  private speciesMap = SpeciesJson;
   results = [
-    {
-      'Name':'Charizard',
-      'Type':'Fire/Flying',
-      'Move 1':'Flamethrower',
-      'Move 2':'Air Cutter',
-      'Move 3':'Menacing Moonraze Maelstrom',
-      'Move 4':'Fire Blast',
-      'Item':'Bright Powder',
-      'Nature':'Brave',
-      'HP EV':0,
-      'Attack EV':255, 
-      'Defense EV':255,
-      'Special Attack EV':255,
-      'Special Defense EV':255,
-      'Speed EV':0,
-      'Base HP': 50,
-      'Base Attack': 100,
-      'Base Defense':150, 
-      'Base Special Attack':200,
-      'Base Special Defense':500,
-      'Base Speed':60
-    }
+    // {
+    //   'Name':'Charizard',
+    //   'Type':'Fire/Flying',
+    //   'Move 1':'Flamethrower',
+    //   'Move 2':'Air Cutter',
+    //   'Move 3':'Menacing Moonraze Maelstrom',
+    //   'Move 4':'Fire Blast',
+    //   'Item':'Bright Powder',
+    //   'Nature':'Brave',
+    //   'HP EV':0,
+    //   'Attack EV':255, 
+    //   'Defense EV':255,
+    //   'Special Attack EV':255,
+    //   'Special Defense EV':255,
+    //   'Speed EV':0,
+    //   'Base HP': 50,
+    //   'Base Attack': 100,
+    //   'Base Defense':150, 
+    //   'Base Special Attack':200,
+    //   'Base Special Defense':500,
+    //   'Base Speed':60
+    // }
   ];
-
+  convertedResults = [];
   example = 
     {
       'Name':'Pokemon Name',
       'Type':'Pokemon Typing',
-      'Move 1':'Move 1',
-      'Move 2':'Move 2',
-      'Move 3':'Move 3',
-      'Move 4':'Move 4',
+      'Moves': [
+        'Move 1', 'Move 2', 'Move 3', 'Move 4'
+      ],
       'Item':'Item',
       'Nature':'Nature',
       'HP EV':'HP EV',
@@ -48,12 +48,14 @@ export class ResultDisplayComponent implements OnInit {
       'Special Attack EV':'Special Attack EV',
       'Special Defense EV':'Special Defense EV',
       'Speed EV':'Speed EV',
-      'Base HP': 'Base HP',
-      'Base Attack': 'Base Attack',
-      'Base Defense':'Base Defense', 
-      'Base Special Attack':'Base Special Attack',
-      'Base Special Defense':'Base Special Defense',
-      'Base Speed':'Base Speed'
+      'BaseStats': {
+        'Base HP': 'Base HP',
+        'Base Attack': 'Base Attack',
+        'Base Defense':'Base Defense', 
+        'Base Special Attack':'Base Special Attack',
+        'Base Special Defense':'Base Special Defense',
+        'Base Speed':'Base Speed'
+      }
     };
 
 
@@ -79,7 +81,24 @@ export class ResultDisplayComponent implements OnInit {
 
   displayedColumns = ['Stat','EV','Move/Item/Nature'];
 
-  constructor() { }
+  constructor(private filterService : FilterService) { 
+    this.filterService.filteredEntries.subscribe(entryList => {
+      this.results = [];
+      for(let i = 0; i < entryList.length; i++) {
+        this._denormalizeEntry(entryList[i]);
+      }
+
+      // console.log(this.results);
+      for(let i = 0; i < entryList.length; i++) {
+        entryList[i]['tableData'] = this.convert(entryList[i]);
+      }
+      this.results = entryList;
+    });
+  }
+
+  private _denormalizeEntry(entry) {
+    Object.assign(entry,this.speciesMap[entry['Pokemon']]);
+  }
 
   ngOnInit(): void {
   }
@@ -88,12 +107,12 @@ export class ResultDisplayComponent implements OnInit {
 
   convert(entry) {
     let res = [];
-    res.push({'Stat': entry['Base HP'], 'Move/Item/Nature': entry['Move 1'], 'EV':entry['HP EV']});
-    res.push({'Stat': entry['Base Attack'], 'Move/Item/Nature': entry['Move 2'], 'EV':entry['Attack EV']});
-    res.push({'Stat': entry['Base Defense'], 'Move/Item/Nature': entry['Move 3'], 'EV':entry['Defense EV']});
-    res.push({'Stat': entry['Base Special Attack'], 'Move/Item/Nature': entry['Move 4'], 'EV':entry['Special Attack EV']});
-    res.push({'Stat': entry['Base Special Defense'], 'Move/Item/Nature': entry['Item'], 'EV':entry['Special Defense EV']});
-    res.push({'Stat': entry['Base Speed'], 'Move/Item/Nature': entry['Nature'], 'EV':entry['Speed EV']});
+    res.push({'Stat': entry['BaseStats']['HP'], 'Move/Item/Nature': entry['Moves'][0], 'EV':entry['HP EV']});
+    res.push({'Stat': entry['BaseStats']['Attack'], 'Move/Item/Nature': entry['Moves'][1], 'EV':entry['Attack EV']});
+    res.push({'Stat': entry['BaseStats']['Defense'], 'Move/Item/Nature': entry['Moves'][2], 'EV':entry['Defense EV']});
+    res.push({'Stat': entry['BaseStats']['Special Attack'], 'Move/Item/Nature': entry['Moves'][3], 'EV':entry['Special Attack EV']});
+    res.push({'Stat': entry['BaseStats']['Special Defense'], 'Move/Item/Nature': entry['Item'], 'EV':entry['Special Defense EV']});
+    res.push({'Stat': entry['BaseStats']['Speed'], 'Move/Item/Nature': entry['Nature'], 'EV':entry['Speed EV']});
     return res;
   }
 

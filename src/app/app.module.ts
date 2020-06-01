@@ -23,7 +23,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { HomePageComponent } from './home-page/home-page.component';
 
-// import { NameService } from './name-service/name-service.service';
 
 @NgModule({
   declarations: [

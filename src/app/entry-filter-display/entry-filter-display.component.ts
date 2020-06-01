@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NameService } from '../name/name.service';
 
 
 @Component({
@@ -12,7 +11,7 @@ export class EntryFilterDisplayComponent implements OnInit {
 
 
 
-  constructor(nameService : NameService) { 
+  constructor() { 
   }
 
   ngOnInit(): void {
