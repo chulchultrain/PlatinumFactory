@@ -5,3 +5,13 @@ table {
   .mat-cell {
     padding: 8px 8px 8px 0;
   }
+
+.save-button {
+  width: 50%;
+}
+
+@media (max-width: 700px) {
+  .save-button {
+    width: 100%;
+  }
+}

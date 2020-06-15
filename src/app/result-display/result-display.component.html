@@ -38,6 +38,7 @@
                     {{ entry.Types }}
                 </mat-panel-description>
             </mat-expansion-panel-header>
+            <button mat-raised-button class="save-button" color="primary" (click)="saveEntry(entry)"> Save</button>
 
             <table mat-table [dataSource]="entry.tableData" >
                 <ng-container matColumnDef="Stat">
@@ -50,7 +51,8 @@
                     <td mat-cell *matCellDef="let element"> {{ element['EV'] }}</td>
                 </ng-container>
                 <ng-container matColumnDef="Move/Item/Nature">
-                    <th mat-header-cell *matHeaderCellDef> Move/Item/Nature</th>
+                    <th mat-header-cell *matHeaderCellDef> Move/Item/Nature
+                    </th>
                     <td mat-cell *matCellDef="let element"> {{ element['Move/Item/Nature'] }}</td>
                 </ng-container>
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -59,34 +61,6 @@
 
 
         </mat-expansion-panel>
-        <!-- <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    {{ entry.name }}
-                </mat-panel-title>
-                <mat-panel-description>
-                    Type of Pokemon Entry: i.e. Fire/Flying Special Attacker
-                </mat-panel-description>
-            </mat-expansion-panel-header>
 
-            <table mat-table [dataSource]="tabledata2" >
-                <ng-container matColumnDef="Stat">
-                    <th mat-header-cell *matHeaderCellDef> Stat</th>
-                    <td mat-cell *matCellDef="let element"> {{ element.Stat }}</td>
-                </ng-container>
-                <ng-container matColumnDef="Move/Item/Nature">
-                    <th mat-header-cell *matHeaderCellDef> Move/Item/Nature</th>
-                    <td mat-cell *matCellDef="let element"> {{ element['Move/Item/Nature'] }}</td>
-                </ng-container>
-                <ng-container matColumnDef="EV">
-                    <th mat-header-cell *matHeaderCellDef> EV</th>
-                    <td mat-cell *matCellDef="let element"> {{ element['EV'] }}</td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-
-
-        </mat-expansion-panel> -->
     </ng-container>
 </mat-accordion>

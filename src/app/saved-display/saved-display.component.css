@@ -6,3 +6,12 @@ table {
     padding: 8px 8px 8px 0;
   }
 
+  .remove-button {
+    width: 50%;
+  }
+  
+  @media (max-width: 700px) {
+    .remove-button {
+      width: 100%;
+    }
+  }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FilterService } from '../services/filter/filter.service';
 import SpeciesJson from '../../assets/Species.json';
+import { SaveService } from '../services/save/save.service';
 @Component({
   selector: 'app-result-display',
   templateUrl: './result-display.component.html',
@@ -81,7 +82,7 @@ export class ResultDisplayComponent implements OnInit {
 
   displayedColumns = ['Stat','EV','Move/Item/Nature'];
 
-  constructor(private filterService : FilterService) { 
+  constructor(private filterService : FilterService, private saveService : SaveService) { 
     this.filterService.filteredEntries.subscribe(entryList => {
       this.results = [];
       for(let i = 0; i < entryList.length; i++) {
@@ -115,5 +116,10 @@ export class ResultDisplayComponent implements OnInit {
     res.push({'Stat': entry['BaseStats']['Speed'], 'Move/Item/Nature': entry['Nature'], 'EV':entry['Speed EV']});
     return res;
   }
-
+  
+  saveEntry(entry) {
+    // a saved entries service that will consume this entry, and then when it consumes, the subject generates an entry. Whenever subject notifies observers, the saved-display will
+    // add that entry to its entries. 
+    this.saveService.save(entry);
+  }
 }
